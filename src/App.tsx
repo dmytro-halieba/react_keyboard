@@ -1,16 +1,16 @@
 import React from 'react';
 
 type State = {
-  documentMessage: string;
+  pressedKey: string;
 };
 export class App extends React.PureComponent<{}, State> {
   state: State = {
-    documentMessage: 'Nothing was pressed yet',
+    pressedKey: 'Nothing was pressed yet',
   };
 
   handleDocumentKeypress = (event: KeyboardEvent) => {
     this.setState({
-      documentMessage: `The last pressed key is [${event.key}]`,
+      pressedKey: `The last pressed key is [${event.key}]`,
     });
   };
 
@@ -23,11 +23,11 @@ export class App extends React.PureComponent<{}, State> {
   }
 
   render(): React.ReactNode {
-    const { documentMessage } = this.state;
+    const { pressedKey } = this.state;
 
     return (
       <div className="App">
-        <p className="App__message">{documentMessage}</p>
+        <p className="App__message">{pressedKey}</p>
       </div>
     );
   }
